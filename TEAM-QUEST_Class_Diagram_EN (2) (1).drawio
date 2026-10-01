@@ -1,0 +1,121 @@
+<mxfile host="app.diagrams.net" agent="ChatGPT">
+  <diagram name="TEAM-QUEST Class Diagram" id="teamquest-final">
+    <mxGraphModel dx="2457" dy="1351" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1300" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;&amp;lt;&amp;lt;abstract&amp;gt;&amp;gt; User&lt;/b&gt;&lt;hr/&gt;# id : String&lt;br/&gt;# username : String&lt;br/&gt;# password : String&lt;br/&gt;# fullName : String&lt;br/&gt;# email : String&lt;hr/&gt;+ login(username, password) : boolean&lt;br/&gt;+ logout() : void&lt;br/&gt;+ getRole() : String" vertex="1">
+          <mxGeometry height="185" width="270" x="510" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="3" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Member&lt;/b&gt;&lt;hr/&gt;- profile : PlayerProfile&lt;hr/&gt;+ claimTask(task : Task) : boolean&lt;br/&gt;+ submitTask(task : Task, submission : Submission) : void&lt;br/&gt;+ getWorkload() : int&lt;br/&gt;+ getRole() : String" vertex="1">
+          <mxGeometry height="175" width="290" x="330" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Leader&lt;/b&gt;&lt;hr/&gt;- managedTeam : Team&lt;hr/&gt;+ createTask(task : Task) : void&lt;br/&gt;+ approveSubmission(submission : Submission) : void&lt;br/&gt;+ rejectSubmission(submission : Submission) : void&lt;br/&gt;+ getRole() : String" vertex="1">
+          <mxGeometry height="175" width="290" x="700" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;PlayerProfile&lt;/b&gt;&lt;hr/&gt;- xp : int&lt;br/&gt;- level : int&lt;br/&gt;- coin : int&lt;br/&gt;- hp : int&lt;br/&gt;- maxHp : int&lt;br/&gt;- reputation : int&lt;hr/&gt;+ gainXp(amount : int) : void&lt;br/&gt;+ addCoin(amount : int) : void&lt;br/&gt;+ loseHp(amount : int) : void&lt;br/&gt;+ levelUp() : void&lt;br/&gt;+ isWarned() : boolean" vertex="1">
+          <mxGeometry height="253.5" width="270" x="40" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Team&lt;/b&gt;&lt;hr/&gt;- teamId : String&lt;br/&gt;- teamName : String&lt;br/&gt;- members : List&amp;lt;Member&amp;gt;&lt;br/&gt;- leader : Leader&lt;hr/&gt;+ addMember(member : Member) : void&lt;br/&gt;+ removeMember(member : Member) : void&lt;br/&gt;+ getMembers() : List&amp;lt;Member&amp;gt;&lt;br/&gt;+ getLeader() : Leader" vertex="1">
+          <mxGeometry height="205" width="290" x="380" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Project&lt;/b&gt;&lt;hr/&gt;- projectId : String&lt;br/&gt;- projectName : String&lt;br/&gt;- description : String&lt;br/&gt;- deadline : LocalDate&lt;br/&gt;- status : String&lt;br/&gt;- tasks : List&amp;lt;Task&amp;gt;&lt;hr/&gt;+ addTask(task : Task) : void&lt;br/&gt;+ removeTask(task : Task) : void&lt;br/&gt;+ getProgress() : double&lt;br/&gt;+ isOverdue() : boolean" vertex="1">
+          <mxGeometry height="215" width="310" x="760" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Task&lt;/b&gt;&lt;hr/&gt;- taskId : String&lt;br/&gt;- title : String&lt;br/&gt;- description : String&lt;br/&gt;- difficulty : Difficulty&lt;br/&gt;- deadline : LocalDateTime&lt;br/&gt;- status : TaskStatus&lt;br/&gt;- assignee : Member&lt;hr/&gt;+ assignTo(member : Member) : void&lt;br/&gt;+ updateStatus(status : TaskStatus) : void&lt;br/&gt;+ isOverdue() : boolean&lt;br/&gt;+ calculateXp() : int&lt;br/&gt;+ calculateCoin() : int" vertex="1">
+          <mxGeometry height="260" width="320" x="470" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Submission&lt;/b&gt;&lt;hr/&gt;- submissionId : String&lt;br/&gt;- submittedAt : LocalDateTime&lt;br/&gt;- filePath : String&lt;br/&gt;- note : String&lt;br/&gt;- status : TaskStatus&lt;hr/&gt;+ submit() : void&lt;br/&gt;+ approve() : void&lt;br/&gt;+ reject() : void" vertex="1">
+          <mxGeometry height="185" width="280" x="850" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#f3e8ff;" value="&lt;b&gt;QuestBoard&lt;/b&gt;&lt;hr/&gt;- tasks : List&amp;lt;Task&amp;gt;&lt;hr/&gt;+ postTask(task : Task) : void&lt;br/&gt;+ removeTask(task : Task) : void&lt;br/&gt;+ claimTask(task : Task, member : Member) : boolean&lt;br/&gt;+ filterByStatus(status : TaskStatus) : List&amp;lt;Task&amp;gt;&lt;br/&gt;+ filterByDifficulty(difficulty : Difficulty) : List&amp;lt;Task&amp;gt;" vertex="1">
+          <mxGeometry height="220" width="350" x="40" y="820" as="geometry" />
+        </mxCell>
+        <mxCell id="11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#f3e8ff;" value="&lt;b&gt;SmartAssigner&lt;/b&gt;&lt;hr/&gt;- urgentThresholdHours : int&lt;hr/&gt;+ calculateWorkload(member : Member) : int&lt;br/&gt;+ findFreestMember(team : Team) : Member&lt;br/&gt;+ scanUrgentTasks(project : Project) : List&amp;lt;Task&amp;gt;&lt;br/&gt;+ autoAssign(task : Task, team : Team) : void" vertex="1">
+          <mxGeometry height="205" width="350" x="40" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#f3e8ff;" value="&lt;b&gt;GamificationService&lt;/b&gt;&lt;hr/&gt;- hpPenaltyPerDay : int&lt;hr/&gt;+ grantReward(member : Member, task : Task) : void&lt;br/&gt;+ applyPenalty(member : Member, task : Task) : void" vertex="1">
+          <mxGeometry height="167" width="330" x="470" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;" value="&lt;b&gt;Notification&lt;/b&gt;&lt;hr/&gt;- message : String&lt;br/&gt;- receiver : Member&lt;br/&gt;- relatedTask : Task&lt;br/&gt;- type : NotificationType&lt;br/&gt;- createdAt : LocalDateTime&lt;br/&gt;- isRead : boolean&lt;hr/&gt;+ send() : void&lt;br/&gt;+ markAsRead() : void" vertex="1">
+          <mxGeometry height="200" width="300" x="850" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#e8f4ff;" value="&lt;b&gt;&amp;lt;&amp;lt;interface&amp;gt;&amp;gt; Rewardable&lt;/b&gt;&lt;hr/&gt;&lt;hr/&gt;+ calculateXp() : int&lt;br/&gt;+ calculateCoin() : int" vertex="1">
+          <mxGeometry height="167" width="270" x="1000" y="268" as="geometry" />
+        </mxCell>
+        <mxCell id="15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#fff2cc;" value="&lt;b&gt;&amp;lt;&amp;lt;enum&amp;gt;&amp;gt; Difficulty&lt;/b&gt;&lt;hr/&gt;EASY&lt;br/&gt;MEDIUM&lt;br/&gt;HARD&lt;hr/&gt;" vertex="1">
+          <mxGeometry height="167" width="180" x="1160" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#fff2cc;" value="&lt;b&gt;&amp;lt;&amp;lt;enum&amp;gt;&amp;gt; TaskStatus&lt;/b&gt;&lt;hr/&gt;TODO&lt;br/&gt;DOING&lt;br/&gt;REVIEW&lt;br/&gt;DONE&lt;hr/&gt;" vertex="1">
+          <mxGeometry height="167" width="180" x="1160" y="713" as="geometry" />
+        </mxCell>
+        <mxCell id="17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;verticalAlign=top;spacingTop=6;spacingLeft=8;fillColor=#ffffff;strokeColor=#555555;fontSize=13;fillColor=#fff2cc;" value="&lt;b&gt;&amp;lt;&amp;lt;enum&amp;gt;&amp;gt; NotificationType&lt;/b&gt;&lt;hr/&gt;NORMAL&lt;br/&gt;URGENT&lt;hr/&gt;" vertex="1">
+          <mxGeometry height="167" width="190" x="1160" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="18" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;startArrow=none;" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="19" edge="1" parent="1" source="4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;startArrow=none;" target="2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="20" edge="1" parent="1" source="3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=diamond;" target="5" value="1        1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="21" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=diamond;" target="3" value="1        1..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="22" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=diamond;" target="7" value="1        0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="23" edge="1" parent="1" source="7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=diamond;" target="8" value="1        0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="24" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=diamond;" target="9" value="1        0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="25" edge="1" parent="1" source="6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;" target="4" value="1        1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="26" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;" target="3" value="0..*        0..1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="27" edge="1" parent="1" source="10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;" target="8" value="1        0..*">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="28" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;" target="3" value="*        1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="29" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;startArrow=none;" target="8" value="*        1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="30" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=block;endFill=0;" target="14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="31" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="32" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="33" edge="1" parent="1" source="11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="13">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="34" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="35" edge="1" parent="1" source="12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="36" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="37" edge="1" parent="1" source="8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="38" edge="1" parent="1" source="13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;dashed=1;endArrow=open;startArrow=none;" target="17">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
